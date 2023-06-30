@@ -1,0 +1,17 @@
+func combinarMapas(mapa1, mapa2 map[string]int) map[string]int {
+    resultado := make(map[string]int)
+    
+    for chave, valor := range mapa1 {
+        resultado[chave] = valor
+    }
+    
+    for chave, valor := range mapa2 {
+        if _, ok := resultado[chave]; ok {
+            resultado[chave] += valor
+        } else {
+            resultado[chave] = valor
+        }
+    }
+    
+    return resultado
+}
