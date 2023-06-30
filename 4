@@ -1,0 +1,14 @@
+func agruparAnagramas(palavras []string) map[string][]string {
+    anagramas := make(map[string][]string)
+    
+    for _, palavra := range palavras {
+        letras := []byte(palavra)
+        sort.Slice(letras, func(i, j int) bool {
+            return letras[i] < letras[j]
+        })
+        chave := string(letras)
+        anagramas[chave] = append(anagramas[chave], palavra)
+    }
+    
+    return anagramas
+}
