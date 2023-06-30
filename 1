@@ -1,0 +1,10 @@
+func contarPalavras(texto string) map[string]int {
+    palavras := strings.Split(texto, " ")
+    contador := make(map[string]int)
+    
+    for _, palavra := range palavras {
+        contador[palavra]++
+    }
+    
+    return contador
+}
