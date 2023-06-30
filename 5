@@ -1,0 +1,10 @@
+func frequenciaCaracteres(texto string) map[rune]int {
+    frequencia := make(map[rune]int)
+    
+    for _, char := range texto {
+        char = unicode.ToLower(char)
+        frequencia[char]++
+    }
+    
+    return frequencia
+}
