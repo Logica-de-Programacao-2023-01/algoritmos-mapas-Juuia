@@ -1,0 +1,19 @@
+func somaContagens(mapas []map[string]int) map[string]int {
+    soma := &sync.Map{}
+    
+    for _, mapa := range mapas {
+        for palavra, quantidade := range mapa {
+            soma.LoadOrStore(palavra, 0)
+            valorAnterior, _ := soma.Load(palavra)
+            soma.Store(palavra, valorAnterior.(int)+quantidade)
+        }
+    }
+    
+    resultado := make(map[string]int)
+    soma.Range(func(chave, valor interface{}) bool {
+        resultado[chave.(string)] = valor.(int)
+        return true
+    })
+    
+    return resultado
+}
