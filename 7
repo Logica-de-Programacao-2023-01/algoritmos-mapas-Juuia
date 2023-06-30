@@ -1,0 +1,13 @@
+func contagemLetrasPorPalavra(frase string) map[string]map[rune]int {
+    palavras := strings.Fields(frase)
+    contagem := make(map[string]map[rune]int)
+    
+    for _, palavra := range palavras {
+        contagem[palavra] = make(map[rune]int)
+        for _, char := range palavra {
+            contagem[palavra][char]++
+        }
+    }
+    
+    return contagem
+}
